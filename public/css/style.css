@@ -1,0 +1,335 @@
+/* header  */
+/* Hover effect for links */
+header .container-fluid{
+    background-color:#F5F5F5;
+}
+
+
+.navbar-nav .nav-link:hover {
+    color: #007bff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Logo and brand hover */
+  .navbar-brand span {
+    color: #FF3030;
+    font-weight: bold;
+  }
+    .navbar-brand:hover span {
+    color: #FF0033;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Dropdown hover effect */
+  .dropdown-menu {
+    border-radius: 10px;
+    animation: dropdownSlideUp 0.3s ease;
+  }
+  
+  @keyframes dropdownSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Button and input styling */
+  .form-control:focus {
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.2);
+  }
+  
+  .btn-primary {
+    background-color: #007bff;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Rounded input and buttons */
+  .form-control.rounded-pill, .btn.rounded-pill {
+    border-radius: 50px;
+  }
+
+  
+  /* Footer padding and color */
+footer {
+    background-color: #343a40;
+    color: #adb5bd;
+  }
+  
+  footer h5 {
+    color: #fff;
+  }
+  
+  footer a {
+    text-decoration: none;
+  }
+  
+  footer a:hover {
+    color: #007bff;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Social media icons */
+  footer .fa-facebook-square:hover {
+    color: #4267B2;
+  }
+  
+  footer .fa-twitter-square:hover {
+    color: #1DA1F2;
+  }
+  
+  footer .fa-instagram-square:hover {
+    color: #C13584;
+  }
+  /* Navbar link styles */
+.nav-link {
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    color: #007bff; /* Màu xanh khi hover */
+  }
+  
+  /* Style for the "Đăng nhập" and "Đăng ký" links */
+  .nav-item .nav-link.text-dark {
+    margin-left: 10px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    background-color: #f8f9fa; /* Light gray background for differentiation */
+  }
+  
+  .nav-item .nav-link.text-dark:hover  {
+    color: #c40000 !important; /* Blue background on hover */
+  }
+  
+  /* Style for the user dropdown menu */
+  #navbarDropdown {
+    font-size: 1.25rem;
+  }
+  
+  .dropdown-menu {
+    border-radius: 10px;
+    animation: dropdownSlideUp 0.3s ease;
+  }
+  
+  @keyframes dropdownSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Style for the search input and button */
+  .form-control.rounded-pill {
+    border-radius: 50px;
+    padding-left: 20px;
+  }
+  
+  .btn-primary {
+    border-radius: 50px;
+    padding: 8px 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 991px) {
+    .navbar-nav .nav-link {
+      margin-left: 0;
+      margin-top: 10px;
+    }
+  
+    .form-control {
+      width: 100%;
+    }
+  }
+
+  /* Topic music */
+  .main .header-topic{
+    margin-left: 40px;
+  }
+
+  /* Tung the loai bai hat */
+  /* General Section Styling */
+section {
+    background-color: #f8f9fa;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+    font-weight: bold;
+  }
+  
+  /* Genre Cards Styling */
+/* Section styling */
+section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+  }
+  /* section.py-5 .container-topic{
+    background-color: #FA8072	;
+  } */
+  section.py-5 .container-topic .text-topic{
+    padding-top: 10px;
+    padding-bottom: 0px;
+    color: #FA8072	 !important;
+  }
+  
+  h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: #343a40;
+  }
+  
+  /* Card styling */
+  .card {
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Image styling */
+  .card-img-top {
+    transition: transform 0.3s;
+  }
+  
+  .card:hover .card-img-top {
+    transform: scale(1.1);
+  }
+  
+  /* Text and button styling */
+  .card-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+  }
+  
+  .card-text {
+    color: #6c757d;
+  }
+  
+  .btn-primary {
+    border-radius: 50px;
+    padding: 10px 20px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+  }
+  .col-sm-3 .card.card-default{
+    height: 350px;
+    background-color:#FFEFD5	;
+  }
+  .col-sm-3 .card.card-default p.card-text{
+    height: 50px;
+  }
+
+  /* bai hat  */
+  /* General styling for song items */
+.song-item {
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 15px;
+  }
+  
+  .song-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Styling for song image */
+  .inner-image {
+    flex: 0 0 80px; /* Set width of image */
+    margin-right: 15px;
+  }
+  
+  .inner-image img {
+    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+  }
+  
+  /* Song content styling */
+  .inner-content {
+    flex-grow: 1;
+  }
+  
+  .inner-title a {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .inner-title a:hover {
+    text-decoration: underline;
+  }
+  
+  .inner-singer {
+    font-size: 1rem;
+    color: #6c757d;
+    margin-top: 5px;
+  }
+  
+  .inner-like, .inner-time {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Styling for icons */
+  .inner-like i, .inner-time i {
+    color: #ff4757; /* Heart icon color */
+    font-size: 1.2rem;
+    margin-right: 5px;
+  }
+  
+  .inner-like i {
+    color: #ff4757; /* Like icon color */
+  }
+  
+  .inner-time i {
+    color: #ffc107; /* Time icon color */
+  }
+  
+  /* Responsive design for smaller screens */
+  @media (max-width: 768px) {
+    .song-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .inner-image {
+      margin-bottom: 10px;
+    }
+  }
+  

@@ -1,0 +1,49 @@
+header.navbar.navbar-expand-lg.navbar-light.bg-light.shadow-sm
+  .container-fluid
+    // Logo with hover effect
+    a.navbar-brand.text-primary(href="#")
+      img.img-logo(src="https://www.creativefabrica.com/wp-content/uploads/2020/08/06/Music-Logo-Graphics-4868281-1.jpg", width="40", height="40")
+      span.ml-2.mt-3 Nhạc Chill
+
+    // Toggle button for mobile view
+    button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarNav", aria-controls="navbarNav", aria-expanded="false", aria-label="Toggle navigation")
+      span.navbar-toggler-icon
+
+    // Navbar links and search bar
+    .collapse.navbar-collapse#navbarNav
+      ul.navbar-nav.me-auto.mb-2.mb-lg-0
+        li.nav-item
+          a.nav-link.text-dark.active(href="#") Trang chủ
+        li.nav-item
+          a.nav-link.text-dark(href="#") Bài hát
+        li.nav-item
+          a.nav-link.text-dark(href="#") Playlist
+        li.nav-item
+          a.nav-link.text-dark(href="topics") Thể loại
+        li.nav-item
+          a.nav-link.text-dark(href="#") Top 100 bài hát hay nhát
+
+      // Search bar with rounded corners and subtle hover effect
+      form.d-flex
+        input.form-control.me-2.rounded-pill.shadow-sm(type="search", placeholder="Search songs, artists", aria-label="Search")
+        button.btn.btn-danger.rounded-pill(type="submit") Search
+
+      // User login and registration
+      ul.navbar-nav.ms-auto
+        // Login link
+        li.nav-item
+          a.nav-link.text-dark(href="#login") Đăng nhập
+
+        // Registration link
+        li.nav-item
+          a.nav-link.text-dark(href="#register") Đăng ký
+
+        // User icon or account dropdown if user is logged in
+        li.nav-item.dropdown.d-none
+          a#navbarDropdown.nav-link.dropdown-toggle.text-dark(href="#", role="button", data-bs-toggle="dropdown", aria-expanded="false")
+            i.fas.fa-user-circle.fs-4
+          ul.dropdown-menu.dropdown-menu-end.shadow-sm(aria-labelledby="navbarDropdown")
+            li
+              a.dropdown-item(href="#") Account Info
+            li
+              a.dropdown-item.text-danger(href="#") Logout

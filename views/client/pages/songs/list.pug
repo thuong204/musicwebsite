@@ -1,0 +1,24 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head
+
+block main
+    .main 
+        .container.my-3
+            .row
+                .col-12
+                    +box-head(pageTitle)
+            section.py-5
+                .container
+                    .row
+                        each song in songs
+                            .col-6.mb-3 
+                                div(class="song-item")
+                                    div(class="inner-image")
+                                        a(href=song.avatar)
+                                            img(src=song.avatar alt="")
+                                    div(class="inner-content")
+                                        div(class="inner-title")
+                                            a(href="") #{song.title}
+                                        div(class="inner-singer")  #{song.infoSinger.fullName}
+                                        div(class="inner-like") #{song.like}
+                                        div(class="inner-time") Hoom nay

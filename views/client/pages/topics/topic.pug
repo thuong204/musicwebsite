@@ -1,0 +1,25 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head
+
+block main
+    .main 
+        .container.my-3
+            .row
+                .col-12
+                    +box-head(pageTitle)
+            section.py-5
+                .container.container-topic
+                    h2.text-center.mb-5.text-uppercase.text-topic Khám phá các thể loại mới
+
+                    .row.g-4
+                        each topic in topics
+                            .col-sm-3.mb-3
+                                .card.shadow-sm.border-0.text-center.card-default
+                                    img.card-img-top.rounded-circle.w-50.mx-auto.my-4(src=topic.avatar)
+                                    .card-body
+                                        h5.card-title.text-uppercase #{topic.title}
+                                        p.card-text #{topic.description} 
+                                        a.btn.btn-success.rounded-pill(href=`/songs/${topic.slug}`) Khám phá #{topics.title}
+
+
+
