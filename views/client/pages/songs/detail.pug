@@ -18,8 +18,12 @@ block main
                         h5.song-artist.text-success <i class="fas fa-microphone"></i> #{singer.fullName}
                         p.song-genre Thể loại: #{topic.title}
                         p.song-album Album: Tên Album
-                        p.song-like <i class="fas fa-thumbs-up text-primary"></i> #{song.like}
-                        p.song-love <i class="fas fa-heart text-danger"></i> 
+                        p(class="song-like" )
+                                i(class="far fa-thumbs-up text-primary" style="cursor:pointer" button-like= song.id)  
+                                span &nbsp; #{song.like} thích
+                        p(class="song-love" + (song.isFavorite ? " active" : ""))
+                                i(class="far fa-heart text-danger" + ( song.isFavorite ?  " active" : "") style="cursor:pointer" button-favorite= song.id)  
+                                span &nbsp;Bài hát yêu thích
                         p.song-year <i class="far fa-clock text-dark"></i>  2023
 
 

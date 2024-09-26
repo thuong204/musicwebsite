@@ -3,6 +3,7 @@ import { Request,Response } from "express";
 import Song from "../../models/song.model";
 import Topic from "../../models/topic.model";
 import Singer from "../../models/singer.model";
+import FavoriteSong from "../../models/favorite.model";
 export const list = async(req:Request, res:Response) =>{
     const slugTopic:String  = req.params.slugTopic
     const topic = await Topic.findOne({
@@ -52,6 +53,16 @@ export const detail = async(req:Request, res:Response) =>{
             status:"active"
         }).select("title")
 
+        const favorite = await FavoriteSong.findOne({
+            deleted:false,
+            songId: song.id
+        })
+        if(favorite){
+            song["isFavorite"] = true
+        }
+        else{
+            song["isFavorite"] =false
+        }
 
    
     res.render("client/pages/songs/detail.pug",{
@@ -60,4 +71,62 @@ export const detail = async(req:Request, res:Response) =>{
         singer:singer,
         topic:topic
     })
+}
+export const like = async(req:Request, res:Response) =>{
+    const idSong:String = req.params.idSong
+    const typeLike:String = req.params.typeLike
+    const song = await Song.findOne({
+        _id:idSong,
+        deleted:false,
+        status:"active"
+    })
+    const likeNew: number = typeLike == "like" ? song.like+1 : song.like-1
+    await Song.updateOne({
+        _id:idSong
+    },{
+        like: likeNew
+    })
+    res.json({
+        code:200,
+        message:"thanhf coong",
+        like:likeNew
+    })
+
+
+}
+export const favorite = async(req:Request,res:Response) =>{
+    const songId = req.params.idSong
+    const typeFavorite = req.params.typeFavorite
+    const favorite:boolean = typeFavorite =="favorite" ? true : false
+    if(favorite){
+         const existFavorite = await FavoriteSong.findOne({
+            deleted:false,
+            songId:songId
+        })
+        if(!existFavorite){
+            const record = new FavoriteSong({
+                // userId:"",
+                songId:songId
+            })
+            await record.save()
+        }
+      
+    }
+    else{
+        const existFavorite = await FavoriteSong.findOne({
+            deleted:false,
+            songId:songId
+        })
+        if(existFavorite){
+            await FavoriteSong.deleteOne({
+                songId: songId
+            })
+        }
+
+    }
+    res.json({
+        code:200,
+        message:"Thanhf coong"
+    })
+
 }

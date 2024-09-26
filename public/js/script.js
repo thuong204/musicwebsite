@@ -25,6 +25,57 @@ ap.on('pause',function (){
 })
 }
 
+//like 
+const buttonLike = document.querySelector("[button-like]")
+if(buttonLike){
+    buttonLike.addEventListener("click",()=>{
+        const songId = buttonLike.getAttribute("button-like")
+        const isActive = buttonLike.classList.contains("active")
+        const typeLike =  isActive ?"dislike" :"like"
+        const link = `/songs/like/${typeLike}/${songId}`;
+        const option ={
+            method:"PATCH"
+        }
+        fetch(link,option)
+            .then(res=>res.json())
+            .then(data =>{
+                
+                const span = buttonLike.parentElement.querySelector("span")
+                span.innerHTML =`&nbsp; ${data.like} thích`
+                buttonLike.classList.toggle("active")
+                buttonLike.parentElement.classList.toggle("active")
+            })
+
+
+})
+
+}
+
+//favourite
+const buttonFavorite= document.querySelector("[button-favorite]")
+if(buttonFavorite){
+    buttonFavorite.addEventListener("click",()=>{
+        const songId = buttonFavorite.getAttribute("button-favorite")
+        const isActive = buttonFavorite.classList.contains("active")
+        const typeFavorite =  isActive ?"unfavorite" :"favorite"
+        const link = `/songs/favorite/${typeFavorite}/${songId}`;
+        const option ={
+            method:"PATCH"
+        }
+        fetch(link,option)
+            .then(res=>res.json())
+            .then(data =>{
+                const span = buttonFavorite.parentElement.querySelector("span")
+                span.innerHTML =`&nbsp; Bài hát yêu thích`
+                buttonFavorite.classList.toggle("active")
+                buttonFavorite.parentElement.classList.toggle("active")
+            })
+
+
+})
+
+}
+
 
 
 

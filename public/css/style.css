@@ -356,6 +356,21 @@ section {
   margin-bottom: 0px;
 }
 
+p.song-like.active{
+  color: #007bff;
+}
+p.song-like i.active{
+  font-weight: 900;
+}
+p.song-love.active{
+  font-weight: 500;
+  color: #ff0000;
+}
+p.song-love i.active{
+  font-weight: 900;
+}
+
+
 
 /* Nút play và chia sẻ */
 .btn-primary {
@@ -405,6 +420,7 @@ section {
   transition: all 0.5s ease-in-out;
   border-radius: 50%;
   margin-left: 30px;
+  animation-play-state: paused;
 }
 
   
