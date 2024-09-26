@@ -1,0 +1,39 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head
+
+block main
+    .main 
+        .container.my-3
+            .row
+                .col-12
+                    +box-head(pageTitle)
+            .song-detail.mt-3
+                .row
+                    // Hình ảnh và thông tin bài hát
+                    .col-md-3
+                        .singer-avatar
+                            img.img-fluid.rotate(src= song.avatar width="170px" alt="Hình bài hát")
+                    .col-md-9
+                        h4.song-title.text-danger #{song.title}
+                        h5.song-artist.text-success <i class="fas fa-microphone"></i> #{singer.fullName}
+                        p.song-genre Thể loại: #{topic.title}
+                        p.song-album Album: Tên Album
+                        p.song-like <i class="fas fa-thumbs-up text-primary"></i> #{song.like}
+                        p.song-love <i class="fas fa-heart text-danger"></i> 
+                        p.song-year <i class="far fa-clock text-dark"></i>  2023
+
+
+                    .d-flex.align-items-center.mt-3
+                        .inner-audio 
+                            div(id="aplayer" data-song=song data-singer=singer)
+                        //- audio(controls)
+                        //-     source(src="https://backend.daca.vn/assets/audios/cat-doi-noi-sau.mp3")
+
+                hr.mt-4
+
+                .row
+                    .col
+                        h3 Lời bài hát
+                        p.song-lyrics 
+                            | !{song.lyrics}
+

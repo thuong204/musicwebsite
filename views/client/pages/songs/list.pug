@@ -14,11 +14,11 @@ block main
                             .col-6.mb-3 
                                 div(class="song-item")
                                     div(class="inner-image")
-                                        a(href=song.avatar)
+                                        a(href="")
                                             img(src=song.avatar alt="")
                                     div(class="inner-content")
                                         div(class="inner-title")
-                                            a(href="") #{song.title}
+                                            a(href=`detail/${song.slug}`).text-decoration-none.text-danger #{song.title}
                                         div(class="inner-singer")  #{song.infoSinger.fullName}
-                                        div(class="inner-like") #{song.like}
-                                        div(class="inner-time") Hoom nay
+                                        div(class="inner-like") <i class="fas fa-thumbs-up text-primary"></i> #{song.like}
+                                        div(class="inner-time") <i class="far fa-clock text-dark"></i> Hôm nay
