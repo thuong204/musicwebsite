@@ -16,7 +16,7 @@ block main
                                     div(class="inner-image")
                                         a(href=`/songs/detail/${song.slug}`)
                                             img(src=song.avatar alt="")
-                                    div(class="inner-content")
+                                    div(class="inner-content active")
                                         div(class="inner-title")
                                             a(href=`/songs/detail/${song.slug}`).text-decoration-none.text-danger #{song.title}
                                         div(class="inner-singer text-success") <i class="fas fa-microphone"></i>  #{song.infoSinger.fullName}

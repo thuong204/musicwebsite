@@ -1,0 +1,26 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head
+
+block main
+    .main 
+        .container.my-3
+            .row
+                .col-12
+                    +box-head(pageTitle)
+            section.py-5
+                .container.song-item-like
+                    .row
+                        each favoriteSong in favoriteSongs
+                            div(class="col-12 col-md-6 col-lg-4 mb-3")
+                                div(class="song-item")
+                                    div(class="inner-image")
+                                        a(href=`/songs/detail/${favoriteSong.infoSong.slug}`)
+                                            img(src=`${favoriteSong.infoSong.avatar}`  alt="")
+                                    div(class="inner-content inner-favorite")
+                                        div(class="inner-title")
+                                            a(href=`/songs/detail/${favoriteSong.infoSong.slug}`).text-decoration-none.text-danger #{favoriteSong.infoSong.title}
+                                        div(class="inner-singer text-success") <i class="fas fa-microphone"></i> #{favoriteSong.infoSinger.fullName}
+                                        div(class="inner-love text-danger active") 
+                                            i(class="far fa-heart text-danger active" style="cursor:pointer" button-favorite= favoriteSong.songId)  
+                                            span &nbsp;Bài hát yêu thích
+                                        div(class="inner-time ") <i class="far fa-clock text-dark"></i> Hôm nay

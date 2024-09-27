@@ -15,12 +15,15 @@ block main
                             img.img-fluid.rotate(src= song.avatar width="170px" alt="Hình bài hát")
                     .col-md-9
                         h4.song-title.text-danger #{song.title}
-                        h5.song-artist.text-success <i class="fas fa-microphone"></i> #{singer.fullName}
+                        h7.song-artist.text-success <i class="fas fa-microphone"></i> #{singer.fullName}
                         p.song-genre Thể loại: #{topic.title}
                         p.song-album Album: Tên Album
-                        p(class="song-like" )
+                        p(class="song-like")
                                 i(class="far fa-thumbs-up text-primary" style="cursor:pointer" button-like= song.id)  
                                 span &nbsp; #{song.like} thích
+                        p(class="song-listen")
+                                i(class="fas fa-headphones text-dark")  
+                                span &nbsp; #{song.listen} lượt nghe
                         p(class="song-love" + (song.isFavorite ? " active" : ""))
                                 i(class="far fa-heart text-danger" + ( song.isFavorite ?  " active" : "") style="cursor:pointer" button-favorite= song.id)  
                                 span &nbsp;Bài hát yêu thích

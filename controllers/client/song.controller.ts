@@ -130,3 +130,25 @@ export const favorite = async(req:Request,res:Response) =>{
     })
 
 }
+export const listen  =async(req:Request, res:Response) =>{
+    const songId:String = req.params.songId
+    const song = await Song.findOne({
+        _id:songId,
+        deleted:false,
+        status:"active"
+    })
+    await Song.updateOne({
+        _id: songId
+    },{
+        listen: song.listen+1
+    })
+    const songNew = await Song.findOne({
+        _id:songId
+    })
+    res.json({
+        code:200,
+        message:"thanhf coong",
+        listen: songNew.listen
+    })
+
+}

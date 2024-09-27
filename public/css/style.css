@@ -250,6 +250,7 @@ section {
 .song-item {
     display: flex;
     align-items: center;
+    height: 180px;
     border-radius: 15px;
     overflow: hidden;
     background-color: #f8f9fa;
@@ -264,12 +265,12 @@ section {
   }
   
   /* Styling for song image */
-  .inner-image {
+  .song-item-like .inner-image {
     flex: 0 0 80px; /* Set width of image */
     margin-right: 15px;
   }
   
-  .inner-image img {
+  .song-item-like .inner-image img {
     border-radius: 10px;
     width: 80px;
     height: 80px;
@@ -277,31 +278,43 @@ section {
   }
   
   /* Song content styling */
-  .inner-content {
+  .song-item-like .inner-content {
     flex-grow: 1;
   }
   
-  .inner-title a {
-    font-size: 1.2rem;
+  .song-item-like .inner-title a {
+    font-size: 1rem;
     font-weight: 600;
     color: #007bff;
     text-decoration: none;
   }
   
-  .inner-title a:hover {
+  .song-item-like .inner-title a:hover {
     text-decoration: underline;
   }
   
-  .inner-singer {
-    font-size: 1rem;
+  .song-item-like .inner-singer {
+    font-size: 0.8rem;
     color: #6c757d;
-    margin-top: 5px;
   }
   
-  .inner-like, .inner-time {
+  .song-detail .inner-like {
     font-size: 0.9rem;
     color: #6c757d;
-    margin-top: 10px;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .song-detail .inner-time {
+    font-size: 0.7rem;
+    color: #6c757d;
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+  }
+  .inner-favorite .inner-time {
+    font-size: 0.8rem;
+    color: #6c757d;
     display: flex;
     align-items: center;
   }
@@ -309,7 +322,7 @@ section {
   /* Styling for icons */
   .inner-like i, .inner-time i {
     color: #ff4757; /* Heart icon color */
-    font-size: 1.2rem;
+    font-size: 0.8rem;
     margin-right: 5px;
   }
   
@@ -324,15 +337,28 @@ section {
   /* Responsive design for smaller screens */
   @media (max-width: 768px) {
     .song-item {
-      flex-direction: column;
-      text-align: center;
+      height: 200px;
+      width: 400px;
+      display: flex;
+      margin-bottom: 20px
     }
-  
     .inner-image {
       margin-bottom: 10px;
+      width: 100%;
+      text-align: center;
+    }
+    .song-title{
+      margin-top: 20px;
+    }
+    .inner-image img {
+      width: 100px; /* Adjust as needed for smaller screens */
+      height: 100px;
+      margin-top: 15px;
+    }
+    .inner-time{
+      font-size: 13px;
     }
   }
-
    /* chi tiet bai hat  */
 
 .song-detail {
@@ -355,6 +381,14 @@ section {
   color: #666666;
   margin-bottom: 0px;
 }
+.song-detail .song-listen {
+  font-size: 0.9rem;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.song-detail .song-artist{
+  font-size: 20px ;
+}
 
 p.song-like.active{
   color: #007bff;
@@ -362,15 +396,31 @@ p.song-like.active{
 p.song-like i.active{
   font-weight: 900;
 }
-p.song-love.active{
+.song-love.active{
   font-weight: 500;
   color: #ff0000;
 }
-p.song-love i.active{
+.song-love i.active{
+  font-weight: 900;
+}
+.inner-love.active{
+  font-weight: 500;
+  color: #ff0000;
+}
+.inner-love i.active{
   font-weight: 900;
 }
 
 
+.song-item-like .inner-like.active{
+  color: #007bff;
+}
+.song-item-like .inner-like i.active{
+  font-weight: 900;
+}
+.song-item-like .song-item{
+  height: 150px;
+}
 
 /* Nút play và chia sẻ */
 .btn-primary {
@@ -423,4 +473,56 @@ p.song-love i.active{
   animation-play-state: paused;
 }
 
+/* yeu thich */
+.favorite-songs .inner-love i.heart-favorite{
+  font-weight: 900;
+}
+.favorite-songs .inner-singer, .inner-love{
+  font-size: 13px;
+}
+/* box-saerch  */
+.box-search{
+  /* position: relative; */
+  position: relative;
+}
+.box-search .inner-suggest{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 5px;
+  width: 100%;
+  max-height: 300px;
+  background:#fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  /* z-index: 1; */
+  overflow-y: auto;
+  display: block;
+  display: none;
+
+}
+.box-search img{
+  width: 50px;
+  margin: 5px;
+
+}
+.box-search .inner-suggest.show{
+  display: block;
+}
+.inner-item{
+  display: flex;
+}
+.inner-item .inner-title{
+  margin-left: 20px;
+  text-decoration: none;
+  color: red;
+  font-size: 15px;
+}
+.inner-item .inner-singer{
+  margin-left: 20px;
+  text-decoration: none;
+  color: rgb(0, 54, 135);
+  font-size: 13px;
+
+}
   
