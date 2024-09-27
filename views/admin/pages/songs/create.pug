@@ -1,0 +1,87 @@
+extends ../../layouts/default.pug
+include ../../../client/mixins/box-head.pug
+block main 
+    .container.mt-5
+        h2(class="text-danger mb-3") #{pageTitle}
+        form(
+            action=`/${prefixAdmin}/songs/create`
+            id="form-create-product"
+            method="POST"
+            enctype="multipart/form-data"
+        )
+            div(class="mb-3")
+                label(for="title") Tên bài hát
+                input.form-control(
+                    type="text" 
+                    id="title" 
+                    name ="title" 
+                    required 
+                    placeholder="Nhập tên bài hát")
+            div(class="mb-3")
+                label(for="description") Mô tả bài hát
+                textarea.form-control.textarea-mce(
+                    id ="desc" 
+                    name="description" 
+                    rows="5" 
+                    placeholder="Nhập mô tả"
+                    textarea-mce)
+            div(class="mb-3")
+                label(for="singerId") Ca sĩ
+                select(name="singerId" id="singerId" class="form-select")
+                    option(value="" selected) --Chọn ca sĩ--
+                    each item in singers
+                        option(value=item.id) #{item.fullName}
+            div(class="mb-3")
+                label(for="topicId") Chủ đề
+                select(name="topicId" id="topicId" class="form-select")
+                    option(value="" selected) --Chọn chủ đề--
+                    each item in topics
+                        option(value=item.id) #{item.title}
+            div(class="mb-3" upload-image)
+                label(for="avatar") Hình ảnh
+                input.form-control(
+                    type="file" 
+                    id="avatar" 
+                    class="form-control-file"
+                    accept ="image/*"
+                    name="avatar" 
+                    upload-image-input)
+                img(
+                    src=""
+                    class="image-preview"
+                    upload-image-preview
+                    )
+
+            div(class="mb-3")
+                label(for="lyrics") Lyrics
+                textarea.form-control.textarea-mce(
+                    id ="lyrics" 
+                    name="lyrics" 
+                    rows="5" 
+                    placeholder="Nhập nội dung"
+                    textarea-mce)
+            div(class="mb-3 form-check form-check-inline" )
+                input(
+                    type="radio" 
+                    class="form-check-input" 
+                    id="statusActive" 
+                    name="status" 
+                    checked
+                    value="active")
+                label(
+                    for="statusActive" 
+                    class="form-check-label") Hoạt động        
+            div(class="mb-3 form-check form-check-inline" )
+                input(
+                    type="radio" 
+                    class="form-check-input" 
+                    id="statusInActive" 
+                    name="status" 
+                    value="inactive")
+                label(
+                    for="statusInActive" 
+                    class="form-check-label") Dừng hoạt động
+
+            div(class="mb-3")
+                button.btn.btn-primary(type="submit") Thêm mới
+

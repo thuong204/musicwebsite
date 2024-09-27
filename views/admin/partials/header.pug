@@ -1,0 +1,32 @@
+header.header 
+    .container-fluid 
+        .row.align-items-center
+            .col-8
+                h1 Trang quản lí Nhạc chill
+            .col-4
+                .row 
+                    .col-2
+                    .col-3
+                        ul.navbar-nav.mt-1
+                            .row
+                                .col-6.text-end
+                                    li.nav-item.dropdown.no-arrow.mx-1
+                                        a.nav-link(href='#' id='alertsDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                                            i.fas.fa-bell.fa-fw
+                                            span.badge.bg-danger.text-white.badge-counter 3
+
+                                .col-6.text-start
+                                    li.nav-item.dropdown.no-arrow.mx-1
+                                        a.nav-link(href='#' id='messagesDropdown' role='button' data-bs-toggle='dropdown' aria-expanded='false')
+                                            i.fas.fa-envelope.fa-fw
+                                        ul.dropdown-menu.dropdown-menu-end.shadow(aria-labelledby='messagesDropdown')
+
+                    .col-7
+                        .text-start.img-right
+                            img#userAvatar(alt="" data-bs-toggle="dropdown" aria-expanded="false")
+                            .dropdown-menu.dropdown-menu-end(aria-labelledby="userAvatar")
+                                a.dropdown-item Thông tin cá nhân
+                                a.dropdown-item Cài đặt
+                                a.dropdown-item Đăng xuất
+
+
