@@ -27,5 +27,5 @@ exports.favoriteRoutes = void 0;
 const favoriteController = __importStar(require("../../controllers/client/favorites-songs.controller"));
 const express_1 = require("express");
 const router = (0, express_1.Router)();
-exports.favoriteRoutes = router;
 router.get("/", favoriteController.index);
+exports.favoriteRoutes = router;
