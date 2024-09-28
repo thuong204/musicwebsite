@@ -4,8 +4,7 @@ block main
     .container.mt-5
         h2(class="text-danger mb-3") #{pageTitle}
         form(
-            action=`/${prefixAdmin}/songs/create`
-            id="form-create-product"
+            action=`/${prefixAdmin}/songs/edit/${song.id}?_method=PATCH`
             method="POST"
             enctype="multipart/form-data"
         )
@@ -16,6 +15,7 @@ block main
                     id="title" 
                     name ="title" 
                     required 
+                    value= song.title
                     placeholder="Nhập tên bài hát")
             div(class="mb-3")
                 label(for="description") Mô tả bài hát
@@ -24,19 +24,19 @@ block main
                     name="description" 
                     rows="5" 
                     placeholder="Nhập mô tả"
-                    textarea-mce)
+                    textarea-mce) !{song.description}
             div(class="mb-3")
                 label(for="singerId") Ca sĩ
                 select(name="singerId" id="singerId" class="form-select" required)
-                    option(value="" selected) --Chọn ca sĩ--
+                    option(value="") --Chọn ca sĩ--
                     each item in singers
-                        option(value=item.id) #{item.fullName}
+                        option(value=item.id selected=(item.id == song.singerId ? true : false)) #{item.fullName}
             div(class="mb-3")
                 label(for="topicId") Chủ đề
                 select(name="topicId" id="topicId" class="form-select" required)
-                    option(value="" selected) --Chọn chủ đề--
+                    option(value="") --Chọn chủ đề--
                     each item in topics
-                        option(value=item.id) #{item.title}
+                        option(value=item.id selected=(item.id == song.topicId ? true : false)) #{item.title}
                       
             div(class="mb-3" upload-image)
                 label(for="avatar") Hình ảnh
@@ -48,7 +48,7 @@ block main
                     name="avatar" 
                     upload-image-input)
                 img(
-                    src=""
+                    src=song.avatar
                     class="image-preview"
                     upload-image-preview
                     )
@@ -63,8 +63,8 @@ block main
                     name="audio"
                     upload-audio-input 
                     )
-                audio(controls upload-audio-play class="audio mt-2" src="")
-                    source(src="" class="source-play")
+                audio(controls upload-audio-play class="audio mt-2" src= song.audio)
+                    source(src= song.audio class="source-play")
 
 
             div(class="mb-3")
@@ -73,14 +73,14 @@ block main
                     id ="lyrics" 
                     name="lyrics" 
                     rows="5" 
-                    placeholder="Nhập nội dung")
+                    placeholder="Nhập nội dung") #{song.lyrics}
             div(class="mb-3 form-check form-check-inline" )
                 input(
                     type="radio" 
                     class="form-check-input" 
                     id="statusActive" 
                     name="status" 
-                    checked
+                    checked = (song.status == "active" ?true :false)
                     value="active")
                 label(
                     for="statusActive" 
@@ -91,11 +91,12 @@ block main
                     class="form-check-input" 
                     id="statusInActive" 
                     name="status" 
+                    checked = (song.status == "inactive" ? true :false)
                     value="inactive")
                 label(
                     for="statusInActive" 
                     class="form-check-label") Dừng hoạt động
 
             div(class="mb-3")
-                button.btn.btn-primary(type="submit") Thêm mới
+                button.btn.btn-primary(type="submit") Cập nhật
 

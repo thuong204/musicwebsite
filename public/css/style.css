@@ -437,6 +437,7 @@ p.song-like i.active{
 .song-lyrics {
   font-size: 1.1rem;
   line-height: 1.6;
+  white-space: pre;
   color: #555555;
 }
 

@@ -4,7 +4,12 @@ const topicSchema = new mongoose.Schema({
   avatar: String,
   description:String,
   status: String,
-  slug:String,
+  slug:{
+    type:String,
+    slug:"title",
+    unique: true,
+    index: true
+},
   deleted:{
     type:Boolean,
     default:false
