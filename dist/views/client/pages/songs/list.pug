@@ -1,0 +1,28 @@
+extends ../../layouts/default.pug
+include ../../mixins/box-head
+
+block main
+    .main 
+        .container.my-3
+            .row
+                .col-12
+                    +box-head(pageTitle)
+            section.py-5
+                .container.song-item-like
+                    .row
+                        each song in songs
+                            div(class="col-12 col-md-6 col-lg-4 mb-3")
+                                div(class="song-item")
+                                    div(class="inner-image")
+                                        a(href=`/songs/detail/${song.slug}`)
+                                            img(src=song.avatar alt="")
+                                    div(class="inner-content")
+                                        div(class="inner-title")
+                                            a(href=`/songs/detail/${song.slug}`).text-decoration-none.text-danger #{song.title}
+                                        div(class="inner-singer text-success") <i class="fas fa-microphone"></i>  #{song.infoSinger.fullName}
+                                        div(class="inner-like") 
+                                            i(class="far fa-thumbs-up text-primary" style="cursor:pointer" button-like= song.id)  
+                                            span(style="font-size:13px" class="mt-1") #{song.like} thích
+                                        div(class="inner-time")  
+                                            i(class="far fa-clock text-dark")
+                                            span(style="font-size:13px") 2023

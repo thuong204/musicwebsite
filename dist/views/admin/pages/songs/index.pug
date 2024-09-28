@@ -1,0 +1,96 @@
+extends ../../layouts/default.pug
+include ../../../client/mixins/box-head.pug
+block main 
+    h1 #{pageTitle}
+    .card.mt-3
+        .card-header Bộ lọc và tìm kiếm 
+        .card-body.mt-3
+            .row
+                .col-6
+
+                .col-6
+
+
+    .card.mt-3 
+        .card-header Sắp xếp 
+        .card-body 
+            .row 
+                .col-4 
+
+    .card.mt-3
+        .card-header Danh sách
+        .card-body
+            .row 
+                .col-10
+
+
+                .col-2
+
+                    a(
+                        class="btn btn-outline-success"
+                        href=`/${prefixAdmin}/songs/create`
+                    ) +Thêm bài hát
+            table(
+                class="table table-hover table-sm mt-3"
+                checkbox-multi
+            )
+                thead
+                    tr
+                        th 
+                            input(type="checkbox" name="checkall")
+                        th STT
+                        th Hình ảnh
+                        th Tên bài hát
+                        th Ca sỉ
+                        th Thể loại 
+                        th Trạng thái
+                        th Hành động
+                tbody
+                    each item, index in songs
+                        tr
+                            td 
+                                input(type="checkbox" name="id" value = item.id)
+                            td #{(index+1)}
+                            td 
+                                img(src=item.avatar , alt='Hình ảnh sản phẩm' width='50')
+                            td #{item.title}
+                            td
+                                p  #{item.infoSinger.fullName}
+
+                            td
+                                p  #{item.topic.title}
+                            td  
+                                if(item.status==="active")
+                                    a(href="javascript:;" button-change-status data-status = item.status data-id = item.id class="badge bg-success text-decoration-none") Hoạt động
+                                else
+                                    a(href=`javascript:;` button-change-status data-status = item.status data-id = item.id class="badge bg-danger text-decoration-none") Dừng hoạt động
+
+                            td 
+                                a(
+                                    href=`${prefixAdmin}/products/detail/${item.id}`
+                                    class="btn btn-secondary btn-sm"
+                                    data-id = item.id) Chi tiết
+
+                                    a(
+                                        href=`/${prefixAdmin}/songs/edit/${item.id}`
+                                        class="btn btn-warning btn-sm ms-1"
+                                        data-id = item.id) Sửa
+
+                                    button(class="btn btn-danger btn-sm ms-1" button-delete data-id=item.id ) Xóa
+
+
+        form(
+            action=""
+            method="POST"
+            id="form-change-status"
+            data-path=`${prefixAdmin}/products/change-status/`
+        )
+
+        form(
+            action=""
+            method="POST"
+            id="form-delete-item"
+            data-path=`${prefixAdmin}/products/delete`
+            )
+
+

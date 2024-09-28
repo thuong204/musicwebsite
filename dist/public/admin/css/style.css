@@ -1,0 +1,203 @@
+/* sider  */
+.sider {
+    background-color: #343a40; /* Màu nền tối cho sidebar */
+    width: 180px; /* Chiều rộng của sidebar */
+    height: 100vh; /* Chiều cao full màn hình */
+    position: fixed; /* Sidebar cố định */
+    top: 70px;
+    left: 0;
+    padding-top: 5px;
+  }
+  
+  .inner-menu {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .inner-menu ul {
+    list-style-type: none; /* Loại bỏ dấu chấm tròn trước các mục */
+    padding: 0;
+  }
+  
+  .inner-menu ul li {
+    margin-bottom: 5px; /* Khoảng cách giữa các mục */
+  }
+  
+  .inner-menu ul li a {
+    text-decoration: none; /* Loại bỏ gạch chân */
+    font-size: 15px; /* Kích thước chữ */
+    color: #ffffff; /* Màu chữ trắng */
+    padding: 10px 20px; /* Khoảng cách trong của liên kết */
+    display: block; /* Liên kết chiếm toàn bộ chiều rộng */
+    border-radius: 5px; /* Bo góc cho liên kết */
+    transition: background-color 0.3s ease; /* Hiệu ứng khi di chuột */
+  }
+  
+  .inner-menu ul li a:hover {
+    background-color: #495057; /* Màu nền khi hover */
+  }
+  
+  .inner-menu ul li a.active {
+    background-color: #007bff; /* Màu nền của mục đang được chọn */
+    font-weight: bold; /* Làm đậm chữ */
+  }
+  
+  @media (max-width: 768px) {
+    .sider {
+      display: none; /* Ẩn sidebar khi ở màn hình rất nhỏ */
+    }
+  
+    /* Hiển thị menu khi người dùng click vào một nút */
+    .navbar-toggler {
+      display: block; /* Hiển thị nút toggle */
+    }
+  
+    /* Khi người dùng mở menu */
+    .sider.active {
+      display: block;
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      z-index: 1050;
+    }
+  }
+/* end sider     */
+
+/* header  */
+/* Định dạng chung cho header */
+header.header {
+    background-color: #3f5b78;
+    padding: 13px 0;
+    top:0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    height: 70px;
+    width: 100%;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  /* Căn chỉnh tiêu đề admin */
+  header.header h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(255, 0, 0);
+    margin-top:5px;
+  }
+  
+  header .container-fluid {
+    max-width: 100%;
+  }
+  
+  .header .row.align-items-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Căn chỉnh phần thông báo và tin nhắn */
+  .navbar-nav {
+    display: flex;
+    align-items: center;
+  }
+  
+  .navbar-nav .fas {
+    font-size: 1.2rem;
+    color: #fff;
+  }
+  
+  .navbar-nav .badge-counter {
+    font-size: 0.75rem;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    padding: 5px 7px;
+    border-radius: 50%;
+  }
+  
+  .navbar-nav .fa-bell .badge-counter {
+    background-color: #dc3545; /* Màu đỏ cho thông báo */
+  }
+  
+  .navbar-nav .fa-envelope .badge-counter {
+    background-color: #17a2b8; /* Màu xanh dương cho tin nhắn */
+  }
+  
+  /* Định dạng cho avatar người dùng */
+  .img-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  
+  #userAvatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .dropdown-menu {
+    min-width: 200px;
+    font-size: 0.875rem;
+  }
+  
+  /* Điều chỉnh responsive cho header */
+  @media (max-width: 768px) {
+    header.header {
+      padding: 10px 0;
+    }
+  
+    header.header h1 {
+      font-size: 1.25rem;
+    }
+  
+    .navbar-nav {
+      flex-direction: column;
+    }
+  
+    .navbar-nav .fa-bell,
+    .navbar-nav .fa-envelope {
+      font-size: 1rem;
+    }
+  
+    .navbar-nav .badge-counter {
+      top: -3px;
+      right: -8px;
+      padding: 3px 5px;
+    }
+  
+    #userAvatar {
+      width: 35px;
+      height: 35px;
+    }
+  }
+  
+/* end header  */
+
+/* trang tong quan */
+.body .main {
+    top:70px;
+    position: relative;
+    left: 200px;
+    width: calc(100% - 230px);
+    /* Adjust width considering sider width and main margin */
+    overflow: auto;
+    /* Add scroll if content exceeds */
+}
+
+.image-preview {
+  width: 150px;
+  height: auto;
+  margin-top: 15px;
+  border: 1px solid #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.image-preview[src=""] {
+  display: none;
+}
+
+audio.audio[src=""]{
+  display: none;
+}
